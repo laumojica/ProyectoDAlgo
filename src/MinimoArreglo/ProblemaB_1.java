@@ -35,13 +35,13 @@ public class ProblemaB_1 {
 		  
 		  for (limInf = 0; limInf < N-1; limInf++)
 		  {
-		    if (array[limInf] > array[limInf+1])
+		    if (array[limInf] >= array[limInf+1])
 		      break;
 		  }
 		  
 		  for(limSup = N - 1; limSup > 0; limSup--)
 		  {
-		    if(array[limSup] < array[limSup-1])
+		    if(array[limSup] <= array[limSup-1])
 		      break;
 		  }
 		  		  
@@ -57,7 +57,7 @@ public class ProblemaB_1 {
 		  
 		  for( int i = 0; i < limInf; i++)
 		  {
-		    if(array[i] > minVal)
+		    if(array[i] >= minVal)
 		    {  
 		      limInf = i;
 		      break;
@@ -67,7 +67,7 @@ public class ProblemaB_1 {
 		  
 		  for( int i = N -1; i >= limSup+1; i--)
 		  {
-		    if(array[i] < maxVal)
+		    if(array[i] <= maxVal)
 		    {
 		      limSup = i;
 		      break;
