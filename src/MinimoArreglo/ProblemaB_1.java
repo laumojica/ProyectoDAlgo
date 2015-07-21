@@ -45,7 +45,7 @@ public class ProblemaB_1 {
 		      break;
 		  }
 		  		  
-		  maxVal = array[limInf]; 
+		  maxVal = array[limSup]; 
 		  minVal = array[limInf];
 		  
 		  for(int i = limInf + 1; i <= limSup; i++)
