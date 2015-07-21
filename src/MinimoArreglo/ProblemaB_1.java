@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.xml.bind.ValidationEvent;
+
 public class ProblemaB_1 {
 
 	public static void main(String[] args) throws IOException {
@@ -56,72 +58,59 @@ public class ProblemaB_1 {
 	
 	public static int resolve(int N, int[] array) {
 		
-		int maxSize = 0;
-		int min=minV(array, N);
-		int max=maxV(array, N);
+		int maxSize =0;
 		
-		int s = 0, e = N-1, i, max1, min2;   
-		  
-		 
-		  for (s = 0; s < N-1; s++)
-		  {
-		    if (array[s] > array[s+1])
-		      break;
-		  }
-		  
-		  
-		  for(e = N - 1; e > 0; e--)
-		  {
-		    if(array[e] < array[e-1])
-		      break;
-		  }
-		  
-		  // 
-		  max = array[s]; min = array[s];
-		  for(i = s + 1; i <= e; i++)
-		  {
-		    if(array[i] > max)
-		      max = array[i];
-		    if(array[i] < min)
-		      min = array[i];
-		  }
-		  
-
-		  for( i = 0; i < s; i++)
-		  {
-		    if(array[i] > min)
-		    {  
-		      s = i;
-		      break;
-		    }      
-		  } 
-		  
-		  // step 2(c) of above algo
-		  for( i = N -1; i >= e+1; i--)
-		  {
-		    if(array[i] < max)
-		    {
-		      e = i;
-		      break;
-		    } 
-		  }  
+		int valIn=0;
+		int valInter=0;
+		int valFinInt=0;
+		int valFin=0;
+		
+		for (int i=0;i<N-1;i++)
+		{
+			if(array[i]<=array[i+1])
+			{
+				valInter=array[i+2];
 				
+				
+			}
+			else
+				break;
+		}
+		System.out.println("Es in "+valInter);
+		for (int i=0;i<N;i++)
+		{
+			if(array[i]<=valInter){
+				valIn++;
+			}
+			else
+				break;
+		}
+			
+		for (int i=N-2;i>0;i--)
+		{
+			if(array[i+1]>=array[i])
+			{
+				valFinInt=array[i-1];
+				
+			}
+			else
+				break;
+		}
 		
+		System.out.println("Es fin "+valFinInt);
+		for (int i=N-1;i>0;i--)
+		{
+			if(array[i]>=valFinInt){
+				valFin++;
+			}
+			else
+				break;
+		}
+		System.out.println("ValIN "+ valIn );
+		System.out.println("valFIn "+valFin);
 		
+		maxSize= N-valFin-valIn;
 		
-//		for (int i = 0 ; i < N ; i++) {
-//			for (int j = i+1; j <= N ; j++) {
-//				int min = Integer.MAX_VALUE;
-//				int max = Integer.MIN_VALUE;
-//				for (int k = i ; k < j ; k++) {
-//					min = Math.min(min, array[k]);
-//					max = Math.max(max, array[k]);
-//				}
-//				
-//				if (min != array[i] && max != array[j-1]) 
-//					maxSize = Math.max(maxSize, j-i);
-//			}
-//		}
 		return maxSize;
 	}
 }
