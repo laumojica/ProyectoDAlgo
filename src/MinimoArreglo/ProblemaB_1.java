@@ -60,7 +60,51 @@ public class ProblemaB_1 {
 		int min=minV(array, N);
 		int max=maxV(array, N);
 		
-		
+		int s = 0, e = N-1, i, max1, min2;   
+		  
+		 
+		  for (s = 0; s < N-1; s++)
+		  {
+		    if (array[s] > array[s+1])
+		      break;
+		  }
+		  
+		  
+		  for(e = N - 1; e > 0; e--)
+		  {
+		    if(array[e] < array[e-1])
+		      break;
+		  }
+		  
+		  // 
+		  max = array[s]; min = array[s];
+		  for(i = s + 1; i <= e; i++)
+		  {
+		    if(array[i] > max)
+		      max = array[i];
+		    if(array[i] < min)
+		      min = array[i];
+		  }
+		  
+
+		  for( i = 0; i < s; i++)
+		  {
+		    if(array[i] > min)
+		    {  
+		      s = i;
+		      break;
+		    }      
+		  } 
+		  
+		  // step 2(c) of above algo
+		  for( i = N -1; i >= e+1; i--)
+		  {
+		    if(array[i] < max)
+		    {
+		      e = i;
+		      break;
+		    } 
+		  }  
 				
 		
 		
