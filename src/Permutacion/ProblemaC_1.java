@@ -59,6 +59,10 @@ public class ProblemaC_1 {
 			else if(pos=='v')arreglo[i]=22;else if(pos=='w')arreglo[i]=23;
 			else if(pos=='x')arreglo[i]=24;else if(pos=='y')arreglo[i]=25;
 			else if(pos=='z')arreglo[i]=26;else if(pos=='ñ')arreglo[i]=27;
+			else{
+				System.out.println("Solo se aceptan valores entre a y z ");
+			}
+				
 			
 		}
 				
