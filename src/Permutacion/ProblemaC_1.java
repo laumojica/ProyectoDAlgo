@@ -22,21 +22,17 @@ public class ProblemaC_1 {
 		}
 	}
 
-
-
-
 	public static int[] convertidor(char[] linep)
 	{
 		int[] arreglo = new int[linep.length];
 		
-		
+		//Se le asigna un valor dependiendo de la letra que se deba procesar a cada posición
 		
 		for(int i=0; i< linep.length;i++)
 		{
 			char pos = linep[i];
 			
-			if(pos=='a')arreglo[i]=1;
-						
+			if(pos=='a')arreglo[i]=1; else if(pos==' ')arreglo[i]=0;
 			else if(pos=='b')arreglo[i]=2;else if(pos=='c')arreglo[i]=3;
 			else if(pos=='d')arreglo[i]=4;else if(pos=='e')arreglo[i]=5;
 			else if(pos=='f')arreglo[i]=6;else if(pos=='g')arreglo[i]=7;
@@ -50,13 +46,9 @@ public class ProblemaC_1 {
 			else if(pos=='v')arreglo[i]=22;else if(pos=='w')arreglo[i]=23;
 			else if(pos=='x')arreglo[i]=24;else if(pos=='y')arreglo[i]=25;
 			else if(pos=='z')arreglo[i]=26;else if(pos=='ñ')arreglo[i]=27;
-			else if(pos==' ')arreglo[i]=0;
-			
-			
 			
 		}
-		
-		
+				
 		return arreglo;
 		
 	}
@@ -66,13 +58,13 @@ public class ProblemaC_1 {
 	
 	public static ArrayList<Integer> sortInventado(char[] line)
 	{
-		
-        int[] arraP = convertidor(line);
-        
-        
+		int[] arraP = convertidor(line);
+                
         ArrayList<Integer> ordenada = new ArrayList<Integer>();
         
-		ArrayList<Integer> lista0 = new ArrayList<Integer>();ArrayList<Integer> lista1 = new ArrayList<Integer>();
+        //Se crea un ArrayList para cada conjunto de valores
+        
+        ArrayList<Integer> lista0 = new ArrayList<Integer>();ArrayList<Integer> lista1 = new ArrayList<Integer>();
 		ArrayList<Integer> lista2 = new ArrayList<Integer>();ArrayList<Integer> lista3 = new ArrayList<Integer>();
 		ArrayList<Integer> lista4 = new ArrayList<Integer>();ArrayList<Integer> lista5 = new ArrayList<Integer>();
 		ArrayList<Integer> lista6 = new ArrayList<Integer>();ArrayList<Integer> lista7 = new ArrayList<Integer>();
@@ -90,7 +82,7 @@ public class ProblemaC_1 {
 				
 		for(int i=0;i <arraP.length;i++)
 		{
-			
+			//Dependiendo del valor que tenga cada posición se agrega en su ArrayList correspondiente
 			
 			if(arraP[i]==0)lista0.add(arraP[i]); if(arraP[i]==1)lista1.add(arraP[i]);
 			if(arraP[i]==2)lista2.add(arraP[i]);if(arraP[i]==3)lista3.add(arraP[i]);
@@ -109,6 +101,8 @@ public class ProblemaC_1 {
 			
 		}
 				
+		// Se agrega de forma ascendente los valores de cada ArrayList al ArrayList ordenado
+		
 		if(!lista0.isEmpty())ordenada.addAll(lista0);
 		if(!lista1.isEmpty())ordenada.addAll(lista1);		
 		if(!lista2.isEmpty())ordenada.addAll(lista2);
@@ -148,6 +142,7 @@ public class ProblemaC_1 {
 	
 	public static boolean permute(char[] line1, char[] line2)
 	{
+		//Llama el método de ordenamiento teniendo como parámetro las líneas de entrada
 		
 		ArrayList<Integer> l1= sortInventado(line1);
 		ArrayList<Integer> l2= sortInventado(line2);
@@ -155,7 +150,9 @@ public class ProblemaC_1 {
 		String m1 = "";
 	    String m2 = "";
 		
-       for(int i=0; i< l1.size();i++)
+       //Convierte cada ArrayList a un String
+	    
+	   for(int i=0; i< l1.size();i++)
        {
     	   m1+=l1.get(i);
        }
@@ -166,8 +163,10 @@ public class ProblemaC_1 {
        }
 		
 	    
-	    System.out.println(m1);
-	    System.out.println(m2);
+	    System.out.println("La cadena 1 es: "+m1);
+	    System.out.println("La cadena 2 es: "+m2);
+	    
+	    //Compara las dos cadenas de texto
 	    
 	    if(m1.equals(m2))
 	        return true;
