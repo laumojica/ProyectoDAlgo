@@ -33,7 +33,7 @@ public class ProblemaB_1 {
 	    int minVal;   
 		  	  
 	    
-	    //Encuentra la posición del límite inferior donde deja de estar ordenado ascendentemente
+	    //P1: Encuentra la posición del límite inferior donde deja de estar ordenado ascendentemente
 	    
 	    
 		  for (limInf = 0; limInf < N-1; limInf++)
@@ -42,7 +42,7 @@ public class ProblemaB_1 {
 		      break;
 		  }
 		  
-		//Encuentra la posición del límite superior donde deja de estar ordenado descendentemente
+		//P2: Encuentra la posición del límite superior donde deja de estar ordenado descendentemente
 		  
 		  for(limSup = N - 2; limSup > 1; limSup--)
 		  {
@@ -50,13 +50,13 @@ public class ProblemaB_1 {
 		      break;
 		  }
 		  
-		  //Asigna el valor de la posición del límite superior e inferior como maximo valor y mínimo valor respectivamente
+		  //P3: Asigna el valor de la posición del límite superior e inferior como maximo valor y mínimo valor respectivamente
 		  
 		  
 		  maxVal = array[limSup]; 
 		  minVal = array[limInf];
 		  
-		  //Verifica que entre los límites ya establecidos no haya un número mayor o menor dependiendo de la variable, de no ser así estas variables cambian
+		  //P4: Verifica que entre los límites ya establecidos no haya un número mayor o menor dependiendo de la variable, de no ser así estas variables cambian
 		  
 		  for(int i = limInf + 1; i <= limSup; i++)
 		  {
@@ -64,7 +64,7 @@ public class ProblemaB_1 {
 		    if(array[i] < minVal) minVal = array[i];
 		  }
 		  
-		  //Halla la posición en la cual una variable es mayor al valor mínimo
+		  //P5: Halla la posición en la cual una variable es mayor al valor mínimo
 		  
 		  for( int i = 0; i < limInf; i++)
 		  {
@@ -75,7 +75,7 @@ public class ProblemaB_1 {
 		    }      
 		  } 
 		  
-		//Halla la posición en la cual una variable es menor al valor maximo
+		//P6: Halla la posición en la cual una variable es menor al valor maximo
 		  
 		  for( int i = N -1; i >= limSup+1; i--)
 		  {
@@ -86,7 +86,7 @@ public class ProblemaB_1 {
 		    } 
 		  }
 		  
-		//Para hallar el tamaño del subarreglo se resta la posición del límite superior al inferior  
+		//P7: Para hallar el tamaño del subarreglo se resta la posición del límite superior al inferior  
 		  
 		maxSize= limSup-limInf+1;
 		
