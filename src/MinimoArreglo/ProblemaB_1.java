@@ -1,8 +1,16 @@
 package MinimoArreglo;
 
+/**
+ * DISEÑO Y ANÁLISIS DE ALGORITMOS (ISIS 1105) 
+ * PROYECTO- Problema B
+ * Jorge Andrés de los Rios (201011164)
+ * Laura Camila Mojica López (201212513)
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 
 public class ProblemaB_1 {
 
@@ -22,7 +30,12 @@ public class ProblemaB_1 {
 		}
 	}
 
-	
+	/**
+	 * Método que permite conocer el tamaño del subarreglo minimo a ordenar
+	 * @param array arreglo de números de entrada
+	 * @param N tamaño del arreglo
+	 * @return	int tamaño del mínimo subarreglo a ordenar
+	 */
 	public static int resolve(int N, int[] array) {
 		
 		int maxSize =0;

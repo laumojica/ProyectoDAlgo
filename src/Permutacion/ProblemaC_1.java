@@ -1,10 +1,16 @@
 package Permutacion;
 
+/**
+ * DISEÑO Y ANÁLISIS DE ALGORITMOS (ISIS 1105) 
+ * PROYECTO- Problema C
+ * Jorge Andrés de los Rios (201011164)
+ * Laura Camila Mojica López (201212513)
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
 
 
 public class ProblemaC_1 {
@@ -22,11 +28,18 @@ public class ProblemaC_1 {
 		}
 	}
 
+
+	/**
+	 * Método que permite convertir cada caracter a un valor establecido
+	 * @param linep arreglo de caracteres de linea de entrada
+	 * @return	int[] un arreglo de enteros con las variables asignadas
+	 */
+	
 	public static int[] convertidor(char[] linep)
 	{
 		int[] arreglo = new int[linep.length];
 		
-		//Se le asigna un valor dependiendo de la letra que se deba procesar a cada posición
+		//P1: Se le asigna un valor dependiendo de la letra que se deba procesar a cada posición
 		
 		for(int i=0; i< linep.length;i++)
 		{
@@ -54,7 +67,11 @@ public class ProblemaC_1 {
 	}
 	
 
-	
+	/**
+	 * Método que permite ordenar de manera ascendete los valores del arreglo
+	 * @param line arreglo de caracteres de linea de entrada
+	 * @return	ArrayList<Integer> lista de enteros con los valores ordenados
+	 */
 	
 	public static ArrayList<Integer> sortInventado(char[] line)
 	{
@@ -62,7 +79,7 @@ public class ProblemaC_1 {
                 
         ArrayList<Integer> ordenada = new ArrayList<Integer>();
         
-        //Se crea un ArrayList para cada conjunto de valores
+        //P2: Se crea un ArrayList para cada conjunto de valores
         
         ArrayList<Integer> lista0 = new ArrayList<Integer>();ArrayList<Integer> lista1 = new ArrayList<Integer>();
 		ArrayList<Integer> lista2 = new ArrayList<Integer>();ArrayList<Integer> lista3 = new ArrayList<Integer>();
@@ -82,7 +99,7 @@ public class ProblemaC_1 {
 				
 		for(int i=0;i <arraP.length;i++)
 		{
-			//Dependiendo del valor que tenga cada posición se agrega en su ArrayList correspondiente
+			//P3: Dependiendo del valor que tenga cada posición se agrega en su ArrayList correspondiente
 			
 			if(arraP[i]==0)lista0.add(arraP[i]); if(arraP[i]==1)lista1.add(arraP[i]);
 			if(arraP[i]==2)lista2.add(arraP[i]);if(arraP[i]==3)lista3.add(arraP[i]);
@@ -101,7 +118,7 @@ public class ProblemaC_1 {
 			
 		}
 				
-		// Se agrega de forma ascendente los valores de cada ArrayList al ArrayList ordenado
+		// P4: Se agrega de forma ascendente los valores de cada ArrayList al ArrayList ordenado
 		
 		if(!lista0.isEmpty())ordenada.addAll(lista0);
 		if(!lista1.isEmpty())ordenada.addAll(lista1);		
@@ -138,11 +155,16 @@ public class ProblemaC_1 {
 	}
 	
 	
-	
+	/**
+	 * Método que permite saber si una línea es permutación de la otra
+	 * @param line 1 arreglo de caracteres de linea de entrada
+	 * @param line 2 arreglo de caracteres de linea de entrada
+	 * @return	boolean si las dos lineas son permutaciones
+	 */
 	
 	public static boolean permute(char[] line1, char[] line2)
 	{
-		//Llama el método de ordenamiento teniendo como parámetro las líneas de entrada
+		//P5: Llama el método de ordenamiento teniendo como parámetro las líneas de entrada
 		
 		ArrayList<Integer> l1= sortInventado(line1);
 		ArrayList<Integer> l2= sortInventado(line2);
@@ -150,7 +172,7 @@ public class ProblemaC_1 {
 		String m1 = "";
 	    String m2 = "";
 		
-       //Convierte cada ArrayList a un String
+       //P6 y P7: Convierte cada ArrayList a un String
 	    
 	   for(int i=0; i< l1.size();i++)
        {
@@ -166,7 +188,7 @@ public class ProblemaC_1 {
 	    System.out.println("La cadena 1 es: "+m1);
 	    System.out.println("La cadena 2 es: "+m2);
 	    
-	    //Compara las dos cadenas de texto
+	    //P8: Compara las dos cadenas de texto
 	    
 	    if(m1.equals(m2))
 	        return true;
